@@ -1,0 +1,14 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: finance-bot-db-pvc
+  namespace: finance-bot
+spec:
+  accessModes: [ "ReadWriteMany" ]
+  storageClassName: local-storage
+  resources:
+   requests:
+     storage: 100Mi
+  selector:
+    matchLabels:
+      type: "db"

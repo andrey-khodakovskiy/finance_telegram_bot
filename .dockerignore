@@ -1,0 +1,7 @@
+**/__pycache__/
+Dockerfile
+**/.env
+db/
+logs/
+k8s/
+**/bot_token.txt

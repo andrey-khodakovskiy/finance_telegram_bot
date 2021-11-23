@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finance-bot-deployment
+  namespace: finance-bot
+  labels:
+    app: finance-bot
+spec:
+  template:
+    metadata:
+      name: finance-bot
+      labels:
+        app: finance-bot
+    spec:
+      containers:
+      - name: finance-bot
+        image: mikejonson/private:atletico-finance-telegram-bot
+        imagePullPolicy: Always
+        env:
+        - name: ADMINS
+          value: "492347289,572787872"
+        - name: SEASON_TOTAL
+          value: "10500"
+        - name: SPENDINGS_TOTAL
+          value: "185500"          
+        envFrom:
+        - secretRef:
+            name: finance-bot-token
+        volumeMounts:
+        - name: finance-bot-logs
+          mountPath: "/finance-bot/logs"
+        - name: finance-bot-db
+          mountPath: "/finance-bot/db"
+        - name: timezone-msk
+          mountPath: "/etc/localtime"
+      volumes:
+      - name: finance-bot-logs
+        persistentVolumeClaim:
+          claimName: finance-bot-logs-pvc 
+      - name: finance-bot-db
+        persistentVolumeClaim:
+          claimName: finance-bot-db-pvc
+      - name: timezone-msk
+        hostPath:
+          path: "/usr/share/zoneinfo/Europe/Moscow"
+      imagePullSecrets:
+      - name: docker-mikejonson
+  replicas: 1
+  selector:
+    matchLabels:
+      app: finance-bot

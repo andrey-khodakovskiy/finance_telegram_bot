@@ -26,6 +26,8 @@ from app.functions.queries_data import (
 SMILE = emoji.emojize(":slightly_smiling_face:")
 THUMBS_UP = emoji.emojize(":thumbs_up:")
 SHIT = emoji.emojize(":pile_of_poo:")
+STAR = emoji.emojize(":star:")
+CHICKEN = emoji.emojize(":chicken:")
 
 
 def get_month():
@@ -51,7 +53,11 @@ def get_season_stat_smile(summ):
     average_for_this_month = SEASON_TOTAL / 11 * months_count[get_month()]
     min_for_this_month = average_for_this_month - 1000
 
-    if summ < min_for_this_month:
+    if summ >= SEASON_TOTAL:
+        return STAR
+    elif summ <= 0.2 * min_for_this_month:
+        return CHICKEN
+    elif summ < min_for_this_month:
         return SHIT
     elif summ > average_for_this_month:
         return THUMBS_UP

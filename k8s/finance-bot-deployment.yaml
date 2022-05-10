@@ -20,9 +20,9 @@ spec:
         - name: ADMINS
           value: "492347289,572787872"
         - name: SEASON_TOTAL
-          value: "10500"
+          value: "11000"
         - name: SPENDINGS_TOTAL
-          value: "185500"          
+          value: "167600"          
         envFrom:
         - secretRef:
             name: finance-bot-token

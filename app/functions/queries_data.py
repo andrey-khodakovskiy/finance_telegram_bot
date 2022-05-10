@@ -19,18 +19,18 @@ months_rus = {
 }
 
 months_count = {
-    "jan": 1,
-    "feb": 2,
-    "mar": 3,
-    "apr": 4,
-    "may": 5,
-    "jun": 6,
-    "jul": 6,
-    "aug": 7,
-    "sep": 8,
-    "oct": 9,
-    "nov": 10,
-    "dec": 11,
+    "jan": 11,
+    "feb": 1,
+    "mar": 2,
+    "apr": 3,
+    "may": 4,
+    "jun": 5,
+    "jul": 5,
+    "aug": 6,
+    "sep": 7,
+    "oct": 8,
+    "nov": 9,
+    "dec": 10,
 }
 
 add_player_query = (

@@ -11,7 +11,6 @@ from app.functions.queries_data import months_rus
 
 ADMINS = config("ADMINS", cast=Csv(int))
 
-
 logger = logging.getLogger("admin")
 logger.setLevel(logging.INFO)
 logfile = logging.FileHandler("logs/conversation.log")

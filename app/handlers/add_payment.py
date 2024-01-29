@@ -75,7 +75,7 @@ async def add_payment_get_callback_name(
         types.InlineKeyboardButton(text="+2000", callback_data="2000"),
         types.InlineKeyboardButton(text="+3000", callback_data="3000"),
         types.InlineKeyboardButton(text="+5000", callback_data="5000"),
-        types.InlineKeyboardButton(text="+500", callback_data="500"),
+        types.InlineKeyboardButton(text="+1250", callback_data="1250"),
         types.InlineKeyboardButton(text="другая сумма", callback_data="other"),
     ]
     markup.add(*buttons)
@@ -310,7 +310,7 @@ def register_handlers_add_payment(dp: Dispatcher) -> None:
     )
     dp.register_callback_query_handler(
         add_payment_get_callback_summ,
-        text=["1000", "2000", "3000", "5000", "500"],
+        text=["1000", "2000", "3000", "5000", "1250"],
         state=Admin.add_payment,
     )
     dp.register_callback_query_handler(
